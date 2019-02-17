@@ -5,4 +5,4 @@ build:
     - go
 
 run:
-  web: sockethook
+  web: sockethook --port 80

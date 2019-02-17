@@ -1,1 +1,1 @@
-web: sockethook
+web: sockethook --port 80
