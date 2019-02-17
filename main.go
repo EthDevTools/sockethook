@@ -9,6 +9,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"net/http"
 	"strings"
+	"os"
 )
 
 // Map holding all Websocket clients and the endpoints they are subscribed to
@@ -102,7 +103,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	// Get command line options --address and --port
 	address := flag.String("address", "", "Address to bind to.")
-	port := flag.Int("port", 1234, "Port to bind to. Default: 1234")
+	port := os.Getenv("PORT")
+	if port == "" {
+    log.Fatal("$PORT must be set")
+  }
 	flag.Parse()
 
 	http.HandleFunc("/", handler)
