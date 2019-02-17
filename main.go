@@ -112,6 +112,6 @@ func main() {
 	http.HandleFunc("/", handler)
 
 	// Start HTTP server
-	log.Infof("Sockethook is ready and listening at port %d ✅", *port)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%d", *address, *port), nil))
+	log.Infof("Sockethook is ready and listening at port %d ✅", port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%d", *address, port), nil))
 }
