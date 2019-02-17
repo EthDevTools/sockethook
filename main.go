@@ -101,8 +101,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	// Get command line options --address and --port
-	address := flag.String("address", "", "Address to bind to.")
 	port := os.Getenv("PORT")
 	if port == "" {
     log.Fatal("$PORT must be set")
@@ -113,5 +111,5 @@ func main() {
 
 	// Start HTTP server
 	log.Infof("Sockethook is ready and listening at port %d ✅", port)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%d", *address, port), nil))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
 }
